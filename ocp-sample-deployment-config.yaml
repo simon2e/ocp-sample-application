@@ -55,7 +55,22 @@ items:
           deploymentconfig: dc-sample-app
       spec:
         containers:
-        - image: jboss/wildfly
+        - env:
+          ########################################
+          ## Secrets                            ##
+          ########################################
+          - name: KEYCLOAK_TOKEN_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: scr-env-sample-app-secret
+                key: scr-KEYCLOAK_TOKEN_CLIENT_SECRET
+
+          ########################################
+          ## Environmental Variables            ##
+          ########################################
+
+        #- image: jboss/wildfly
+          image: jboss/wildfly
           name: dc-sample-app
           ports:
           - containerPort: 8080
