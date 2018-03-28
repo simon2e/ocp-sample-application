@@ -1,0 +1,87 @@
+---
+######################################################
+### Deployment Configuration Construct              ##
+######################################################
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: dc-sample-app
+    name: dc-sample-app
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jboss/wildfly
+      from:
+        kind: DockerImage
+        name: jboss/wildfly
+      generation: null
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: ""
+  status:
+    dockerImageRepository: ""
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: null
+    labels:
+      app: dc-sample-app
+    name: dc-sample-app
+  spec:
+    replicas: 1
+    selector:
+      app: dc-sample-app
+      deploymentconfig: dc-sample-app
+    strategy:
+      resources: {}
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: dc-sample-app
+          deploymentconfig: dc-sample-app
+      spec:
+        containers:
+        - image: jboss/wildfly
+          name: dc-sample-app
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - dc-sample-app
+        from:
+          kind: ImageStreamTag
+          name: dc-sample-app:latest
+      type: ImageChange
+  status:
+    availableReplicas: 0
+    latestVersion: 0
+    observedGeneration: 0
+    replicas: 0
+    unavailableReplicas: 0
+    updatedReplicas: 0
+kind: List
+metadata: {}
+---
+#######################################################
+#### End of Section                                  ##
+#######################################################

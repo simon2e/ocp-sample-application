@@ -1,0 +1,31 @@
+---
+######################################################
+### Route Construct                                 ##
+######################################################
+apiVersion: "v1"
+kind: "Route"
+metadata:
+  name: "rt-sample-app"
+spec:
+  host: "sample-application.192.168.99.100.nip.io"
+  to:
+    kind: "Service"
+    name: "svc-sample-app"
+    weight: "100"
+  port:
+    targetPort: "8080-tcp"
+  tls:
+    termination: "edge"
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: "sample-application.192.168.99.100.nip.io"
+      routerName: "router"
+      conditions:
+        - type: "Admitted"
+          status: "True"
+      wildcardPolicy: None
+---
+#######################################################
+#### End of Section                                  ##
+#######################################################

@@ -1,0 +1,24 @@
+---
+######################################################
+### Service Construct                               ##
+######################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-sample-app
+spec:
+  ports:
+    - name: '8080-tcp'
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: dc-sample-app
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+---
+#######################################################
+#### End of Section                                  ##
+#######################################################

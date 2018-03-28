@@ -1,0 +1,27 @@
+---
+######################################################
+### Configuration Map Construct                     ##
+######################################################
+apiVersion: v1
+data:
+  sample-app-APPLICATION_SERVICE_PORT: "8080"
+  sample-app-APPLICATION_SERVICE_URL: "http://svc-application.pr-sit-demo.svc"
+  sample-app-DEBUG: "flow-api:*"
+  sample-app-FORM_SERVICE_PORT: "8080"
+  sample-app-FORM_SERVICE_URL: "http://svc-form.pr-sit-demo.svc"
+  sample-app-KEYCLOAK_AUTH_SERVER_URL: "https://keycloak-sso.intranet.com/auth"
+  sample-app-KEYCLOAK_REALM: "keycloak-realm"
+  sample-app-KEYCLOAK_TOKEN_CLIENT_ID: "token-client-id"
+  sample-app-KEYCLOAK_VALIDATION_CLIENT_ID: "sample-app"
+  sample-app-NODE_ENV: "production"
+  sample-app-PORT: "8080"
+  sample-app-REFERENCE_SERVICE_PORT: "8080"
+  sample-app-REFERENCE_SERVICE_URL: "http://svc-reference.pr-sit-demo.svc"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: "cm-env-sample-app-environment"
+---
+#######################################################
+#### End of Section                                  ##
+#######################################################
