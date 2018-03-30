@@ -68,7 +68,71 @@ items:
           ########################################
           ## Environmental Variables            ##
           ########################################
-
+          - name: APPLICATION_SERVICE_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-APPLICATION_SERVICE_PORT
+          - name: APPLICATION_SERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-APPLICATION_SERVICE_URL
+          - name: DEBUG
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-DEBUG
+          - name: FORM_SERVICE_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-FORM_SERVICE_PORT
+          - name: FORM_SERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-FORM_SERVICE_URL
+          - name: KEYCLOAK_AUTH_SERVER_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-KEYCLOAK_AUTH_SERVER_URL
+          - name: KEYCLOAK_REALM
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-KEYCLOAK_REALM
+          - name: KEYCLOAK_TOKEN_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-KEYCLOAK_TOKEN_CLIENT_ID
+          - name: KEYCLOAK_VALIDATION_CLIENT_ID
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-KEYCLOAK_VALIDATION_CLIENT_ID
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-NODE_ENV
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-PORT
+          - name: REFERENCE_SERVICE_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-REFERENCE_SERVICE_PORT
+          - name: REFERENCE_SERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: cm-env-sample-app-environment
+                key: sample-app-REFERENCE_SERVICE_URL
 
           image: jboss/wildfly
           name: dc-sample-app
