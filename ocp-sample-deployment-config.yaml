@@ -69,7 +69,7 @@ items:
           ## Environmental Variables            ##
           ########################################
 
-        #- image: jboss/wildfly
+
           image: jboss/wildfly
           name: dc-sample-app
           ports:
