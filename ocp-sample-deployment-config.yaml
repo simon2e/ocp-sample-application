@@ -145,7 +145,7 @@ items:
             ## CPU Initial Request    = 0.5 cores               ##
             ## Memory Initial Request = 512 MB                  ##
             ## CPU Upper Limit        = 1.0 cores               ##
-            ## Memory Upper Limit     = 1024 MB                 ##
+            ## Memory Upper Limit     = 2048 MB                 ##
             ######################################################
             requests:
               cpu: "500m"
@@ -153,6 +153,37 @@ items:
             limits:
               cpu: "1000m"
               memory: "2048Mi"
+
+          ########################################
+          ## livenessProbe                      ##
+          ## Is the application healthy         ##
+          ## Perform health check on port 8080  ##
+          ########################################
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+
+          ########################################
+          ## readinessProbe                     ##
+          ## Is the application ready           ##
+          ## Perform ready check on port 8080   ##
+          ########################################
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
 
     test: false
     triggers:
