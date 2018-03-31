@@ -139,7 +139,21 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-          resources: {}
+          resources:
+            ######################################################
+            ## Resource Management                              ##
+            ## CPU Initial Request    = 0.5 cores               ##
+            ## Memory Initial Request = 512 MB                  ##
+            ## CPU Upper Limit        = 1.0 cores               ##
+            ## Memory Upper Limit     = 1024 MB                 ##
+            ######################################################
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "2048Mi"
+
     test: false
     triggers:
     - type: ConfigChange
