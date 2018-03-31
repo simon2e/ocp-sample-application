@@ -15,6 +15,8 @@ Currently included features are :
 * Configuration Map
 * Secrets
 * Resource Management
+* Health Check 
+* Readiness Check
 
 Please feel free to contribute and re-use.
 
