@@ -14,7 +14,7 @@ Currently included features are :
 * Route
 * Configuration Map
 * Secrets
-* Quota
+* Resource Management
 
 Please feel free to contribute and re-use.
 
