@@ -70,6 +70,12 @@ items:
           app: dc-sample-app
           deploymentconfig: dc-sample-app
       spec:
+          ########################################
+          ## Pod Security Context               ##
+          ## Container cannot run as root       ##
+          ########################################
+        securityContext:
+          runAsNonRoot: true
         containers:
         - env:
           ########################################
