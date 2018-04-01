@@ -3,6 +3,7 @@
 ### Horizontal Pod Autoscaler Construct             ##
 ### Requires Heapster for metrics                   ##
 ### Scale to 2 replicas when CPU hits 70%           ##
+### Not implemented in ocp-sample-install.sh        ##
 ######################################################
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
