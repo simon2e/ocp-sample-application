@@ -1,6 +1,6 @@
 ---
 ######################################################
-### Deployment Configuration Construct              ##
+### Image Stream Construct                          ##
 ######################################################
 apiVersion: v1
 items:
@@ -41,6 +41,10 @@ items:
 
   status:
     dockerImageRepository: ""
+
+######################################################
+### Deployment Config Construct                     ##
+######################################################
 - apiVersion: v1
   kind: DeploymentConfig
   metadata:
