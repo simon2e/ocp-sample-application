@@ -15,11 +15,20 @@ Currently included features are :
 * Configuration Map
 * Secrets
 * Resource Management
-* Health Check 
+* Health Check
 * Readiness Check
+* Horizontal Pod Autoscaler
 
 Please feel free to contribute and re-use.
 
 If you contribute please try to fully document to asssit consultants in understanding the features being added.
 
-To deploy on minishift just clone the project, chmod ocp-sample-install.sh and execute ocp-sample-install.sh.
+To deploy on minishift just:
+
+1. Clone the project
+2. minishift start
+3. oc login -u developer
+4. oc new-project pr-sample-application --description="Sample Application Project" --display-name="Sample Application Project"
+5. chmod +x ocp-sample-install.sh
+6. ./ocp-sample-install.sh
+7. oc get all
