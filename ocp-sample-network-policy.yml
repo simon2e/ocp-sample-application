@@ -1,0 +1,32 @@
+---
+######################################################
+### Network Policy                                  ##
+### Control pods incoming connection                ##
+### Based on Labels                                 ##
+######################################################
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-access-sample-app
+  namespace: pr-sample-application
+spec:
+  podSelector:
+  matchLabels:
+## This policy applies to this label
+    app: dc-sample-app
+    tier: application
+ingress:
+- from:
+  - podSelector:
+      matchLabels:
+## Allow access from this label
+        tier: web
+ports:
+- protocol: TCP
+## To this port
+  port: 8080
+---
+#######################################################
+#### End of Section                                  ##
+#######################################################
+
