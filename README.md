@@ -23,7 +23,9 @@ Samples documented but not included in the deployment due to missing support are
 * [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies)
 
 Horizontal Pod Autoscaler requires Heapster
+
 Pod Security Policies requires the controller-manager to have PodSecurityPolicy
+
 Network Policies requires of Container Network Provider
 
 Please feel free to contribute and re-use.
