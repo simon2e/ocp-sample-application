@@ -12,7 +12,7 @@ Currently included features are :
 * [Deployment Configuration](https://docs.openshift.com/container-platform/3.9/dev_guide/deployments/how_deployments_work.html)
 * [Service](https://kubernetes.io/docs/concepts/services-networking/service)
 * [Route](https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html)
-* [Configuration Map(https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap)
+* [Configuration Map](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap)
 * [Secrets](https://kubernetes.io/docs/concepts/configuration/secret)
 * [Limits](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container)
 * [Health Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
@@ -26,9 +26,9 @@ If you contribute please try to fully document to asssit consultants in understa
 To deploy on minishift just:
 
 1. Clone the project
-2. minishift start
-3. oc login -u developer
-4. oc new-project pr-sample-application --description="Sample Application Project" --display-name="Sample Application Project"
-5. chmod +x ocp-sample-install.sh
-6. ./ocp-sample-install.sh
-7. oc get all
+2. `minishift start`
+3. `oc login -u developer`
+4. `oc new-project pr-sample-application --description="Sample Application Project" --display-name="Sample Application Project"`
+5. `chmod +x ocp-sample-install.sh`
+6. `./ocp-sample-install.sh`
+7. `oc get all`
