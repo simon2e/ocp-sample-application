@@ -1,6 +1,6 @@
-**Sample OpenShift Template/Mainfest Files**
+# Sample OpenShift Template/Mainfest Files
 
-# ocp-sample-application
+** ocp-sample-application**
 
 This intent is to provide a fully documented working set of OpenShift manifest files for Levvel Consultants.
 
@@ -9,15 +9,15 @@ This example deploys a Wildfly server and exposes it via a route.
 By having working template files it will be easier to deploy workloads for clients using commonaly requested features.
 
 Currently included features are :
-* Deployment Configuration
-* Service
-* Route
-* Configuration Map
-* Secrets
-* Resource Management
-* Health Check
-* Readiness Check
-* Horizontal Pod Autoscaler
+* [Deployment Configuration](https://docs.openshift.com/container-platform/3.9/dev_guide/deployments/how_deployments_work.html)
+* [Service](https://kubernetes.io/docs/concepts/services-networking/service)
+* [Route](https://docs.openshift.com/container-platform/3.9/architecture/networking/routes.html)
+* [Configuration Map(https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap)
+* [Secrets](https://kubernetes.io/docs/concepts/configuration/secret)
+* [Limits](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container)
+* [Health Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
+* [Readiness Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
+* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 
 Please feel free to contribute and re-use.
 
