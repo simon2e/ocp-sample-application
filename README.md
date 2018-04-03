@@ -1,4 +1,3 @@
-* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 # Sample OpenShift Template/Mainfest Files
 
 This intent is to provide a fully documented working set of OpenShift manifest files for Levvel Consultants.
