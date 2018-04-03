@@ -1,3 +1,4 @@
+* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 # Sample OpenShift Template/Mainfest Files
 
 This intent is to provide a fully documented working set of OpenShift manifest files for Levvel Consultants.
@@ -15,12 +16,16 @@ Currently included features are:
 * [Limits](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container)
 * [Health Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
 * [Readiness Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
-* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context)
 
-Samples documented but not included are:
+Samples documented but not included in the deployment due to missing support are:
+* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
 * [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy)
 * [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies)
+
+Horizontal Pod Autoscaler requires Heapster
+Pod Security Policies requires the controller-manager to have PodSecurityPolicy
+Network Policies requires of Container Network Provider
 
 Please feel free to contribute and re-use.
 
@@ -28,7 +33,7 @@ If you contribute please try to fully document to asssit consultants in understa
 
 To deploy on minishift just:
 
-1. Clone the project
+1. `git clone https://github.com/GetLevvel/ocp-sample-application.git`
 2. `minishift start`
 3. `oc login -u developer`
 4. `oc new-project pr-sample-application --description="Sample Application Project" --display-name="Sample Application Project"`
