@@ -1,0 +1,24 @@
+####################################################
+## External Custom Metrics                        ##
+## alpha in Kubernetes 1.10                       ##
+## HPA v2 API to support external metrics         ##
+## Example shows HPA to serve the                 ##
+## aforementioned Pub/Sub autoscaling requirement ##
+####################################################
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+spec:
+  scaleTargetRef:
+    kind: ReplicationController
+    name: Worker
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+   - type: External
+     external:
+       metricName: queue_messages_ready
+       metricSelector:
+         matchLabels:
+           queue: worker_tasks
+       targetAverageValue: 30
+
