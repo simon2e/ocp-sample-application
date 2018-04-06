@@ -70,6 +70,7 @@ items:
           app: dc-sample-app
           deploymentconfig: dc-sample-app
       spec:
+
           ########################################
           ## Pod Security Context               ##
           ## Container cannot run as root       ##
@@ -78,6 +79,17 @@ items:
           runAsNonRoot: true
         containers:
         - env:
+
+          ##################################################
+          ## Shared PID Namespaces                        ##
+          ## beta in Kubernetes 1.10                      ##
+          ## enable with PodShareProcessNamespace         ##
+          ## makes sidecar containers more powerful       ##
+          ## send a SIGHUP signal to reload configuration ##
+          ##################################################
+
+        #shareProcessNamespace: true
+
           ########################################
           ## Secrets                            ##
           ########################################
@@ -175,6 +187,18 @@ items:
             limits:
               cpu: "1000m"
               memory: "2048Mi"
+
+          ########################################
+          ## Device Plugin system               ##
+          ## beta in Kubernetes 1.10            ##
+          ## scheduled on node with 2 free GPU  ##
+          ########################################
+
+          #resources:
+            #limits:
+              #nvidia.com/gpu: 2
+
+
 
           ########################################
           ## livenessProbe                      ##
