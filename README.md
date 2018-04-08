@@ -6,6 +6,10 @@ This example deploys a Wildfly server and exposes it via a route.
 
 By having working template files it will be easier to deploy workloads for clients using commonaly requested features.
 
+[Why Kubernetes](https://cloud.google.com/kubernetes-engine/kubernetes-comic)
+
+[Kubernetes Features](https://deis.com/blog/2016/kubernetes-illustrated-guide)
+
 Currently included features are:
 * [Deployment Configuration](https://docs.openshift.com/container-platform/3.9/dev_guide/deployments/how_deployments_work.html)
 * [Service](https://kubernetes.io/docs/concepts/services-networking/service)
@@ -16,17 +20,12 @@ Currently included features are:
 * [Health Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
 * [Readiness Check](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes)
 * [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context)
+* [Empty Directory](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
 
 Samples documented but not included in the deployment due to missing support are:
-* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale)
-* [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy)
-* [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies)
-
-Horizontal Pod Autoscaler requires Heapster
-
-Pod Security Policies requires the controller-manager to have PodSecurityPolicy
-
-Network Policies requires of Container Network Provider
+* [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) - Horizontal Pod Autoscaler requires Heapster
+* [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy) - Pod Security Policies requires the controller-manager to have PodSecurityPolicy
+* [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) - Network Policies requires of Container Network Provider`
 
 Please feel free to contribute and re-use.
 
