@@ -87,7 +87,6 @@ items:
           ## makes sidecar containers more powerful       ##
           ## send a SIGHUP signal to reload configuration ##
           ##################################################
-
         #shareProcessNamespace: true
 
           ########################################
@@ -174,6 +173,7 @@ items:
           - containerPort: 8080
             protocol: TCP
           resources:
+
             ######################################################
             ## Resource Management                              ##
             ## CPU Initial Request    = 0.5 cores               ##
@@ -193,12 +193,9 @@ items:
           ## beta in Kubernetes 1.10            ##
           ## scheduled on node with 2 free GPU  ##
           ########################################
-
           #resources:
             #limits:
               #nvidia.com/gpu: 2
-
-
 
           ########################################
           ## livenessProbe                      ##
@@ -231,6 +228,19 @@ items:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
+
+          ########################################
+          ## Empty Directory used for cache     ##
+          ## temporary directory destroyed      ##
+          ## when pod terminates                ##
+          ########################################
+          volumeMounts:
+            - name: cache-directory
+              mountPath: "/cache"
+              readOnly: false
+        volumes:
+          - name: cache-directory
+            emptyDir: {}
 
     test: false
     triggers:
