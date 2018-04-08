@@ -4,6 +4,11 @@
 ### Control pods incoming connection                ##
 ### Based on Labels                                 ##
 ######################################################
+## Web Tier communicates with App tier   tier: web  ##
+## App Tier communicates with DB  tier   tier: app  ##
+## DB  Tier communicates with App tier   tier: db   ##
+######################################################
+
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -12,17 +17,22 @@ metadata:
 spec:
   podSelector:
   matchLabels:
+
 ## This policy applies to this label
     app: dc-sample-app
-    tier: application
+    tier: app
+
 ingress:
 - from:
   - podSelector:
       matchLabels:
+
 ## Allow access from this label
         tier: web
+
 ports:
 - protocol: TCP
+
 ## To this port
   port: 8080
 ---
