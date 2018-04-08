@@ -25,7 +25,7 @@ Currently included features are:
 Samples documented but not included in the deployment due to missing support are:
 * [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) - Horizontal Pod Autoscaler requires Heapster
 * [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy) - Pod Security Policies requires the controller-manager to have PodSecurityPolicy
-* [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) - Network Policies requires of Container Network Provider`
+* [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) - Network Policies requires of Container Network Provider
 
 Please feel free to contribute and re-use.
 
