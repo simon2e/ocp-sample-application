@@ -30,8 +30,8 @@ items:
         type: ""
 
       ########################################
-      ## Watch external Registry for        ##
-      ## Image Tag Changes : latest-dev     ##
+      ## Watch external Registry (jFrog)    ##
+      ## for Image Tag Changes : latest-dev ##
       ########################################
       #importPolicy:
         #scheduled: true
@@ -77,8 +77,13 @@ items:
           ########################################
         securityContext:
           runAsNonRoot: true
-        containers:
-        - env:
+
+          ########################################
+          ## Graceful shutdown of Pods          ##
+          ## 15 Seconds to terminate            ##
+          ## Adjust as required                 ##
+          ########################################
+        terminationGracePeriodSeconds: 15
 
           ##################################################
           ## Shared PID Namespaces                        ##
@@ -88,6 +93,9 @@ items:
           ## send a SIGHUP signal to reload configuration ##
           ##################################################
         #shareProcessNamespace: true
+
+        containers:
+        - env:
 
           ########################################
           ## Secrets                            ##
