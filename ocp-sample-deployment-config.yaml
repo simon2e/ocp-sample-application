@@ -81,7 +81,9 @@ items:
           ########################################
           ## Graceful shutdown of Pods          ##
           ## 15 Seconds to terminate            ##
-          ## Adjust as required                 ##
+          ## Amount of time to wait for a       ##
+          ## SIGTERM to run until a SIGTERM     ##
+          ## is used                            ##
           ########################################
         terminationGracePeriodSeconds: 15
 
