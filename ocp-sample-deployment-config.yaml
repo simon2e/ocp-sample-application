@@ -25,7 +25,8 @@ items:
       generation: null
 
       importPolicy: {}
-      name: latest
+      name: 11.0.0.Final
+      #name: latest
       referencePolicy:
         type: ""
 
@@ -70,6 +71,21 @@ items:
           app: dc-sample-app
           deploymentconfig: dc-sample-app
       spec:
+
+          ################################################
+          ## podAntiAffinity Rule                       ##
+          ## Only one Pod will be scheduled on one Node ##
+          ################################################
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - dc-sample-app
+              topologyKey: kubernetes.io/hostname
 
           ########################################
           ## Pod Security Context               ##
@@ -261,7 +277,8 @@ items:
         - dc-sample-app
         from:
           kind: ImageStreamTag
-          name: dc-sample-app:latest
+          name: dc-sample-app:11.0.0.Final
+          #name: dc-sample-app:latest
       type: ImageChange
   status:
     availableReplicas: 0
