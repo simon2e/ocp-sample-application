@@ -10,7 +10,7 @@
 
 # Change to the correct project environment
 
-# oc project pr-sample-application
+oc project pr-sample-application
 
 # Clean up everything
 oc delete all --all
@@ -53,7 +53,7 @@ oc apply -f ocp-sample-service.yml
 ## Create Deployment Configuration                       ##
 ###########################################################
 
-oc apply -f ocp-sample-deployment-config.yaml
+oc apply -f ocp-sample-deployment-config.yaml --record
 
 ###########################################################
 ## End of Script                                         ##

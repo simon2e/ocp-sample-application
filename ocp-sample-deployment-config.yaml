@@ -177,7 +177,7 @@ items:
                 name: cm-env-sample-app-environment
                 key: sample-app-REFERENCE_SERVICE_URL
 
-          image: jboss/wildfly
+          image: jboss/wildfly:11.0.0.Final
           name: dc-sample-app
           ports:
           - containerPort: 8080
