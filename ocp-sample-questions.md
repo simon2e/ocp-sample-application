@@ -24,7 +24,7 @@ If the answer is yes then modify : `ocp-sample-secret.yml`
 Edit `ocp-sample-secret.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application
 You will normally have one `ocp-sample-secret.yml` per environment and one `ocp-sample-deployment-config.yaml`
 
-## Application specific requirements the involve modifying : `ocp-sample-deployment-config.yaml`
+## Application specific requirements that involve modifying : `ocp-sample-deployment-config.yaml`
 These sections are all in the `ocp-sample-deployment-config.yaml`
 
 * Do you wish to pull a new image from an external repository anytime the tag changes?
