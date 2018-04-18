@@ -72,10 +72,17 @@ items:
           deploymentconfig: dc-sample-app
       spec:
 
-          ################################################
-          ## podAntiAffinity Rule                       ##
-          ## Only one Pod will be scheduled on one Node ##
-          ################################################
+        ################################################
+        ## Provide an application with a unique       ##
+        ## identity in order to control access to     ##
+        ## resources on a fine grain                  ##
+        ################################################
+        serviceAccountName: sa-ocp-sample-app
+
+        ################################################
+        ## podAntiAffinity Rule                       ##
+        ## Only one Pod will be scheduled on one Node ##
+        ################################################
         affinity:
           podAntiAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
@@ -87,29 +94,29 @@ items:
                   - dc-sample-app
               topologyKey: kubernetes.io/hostname
 
-          ########################################
-          ## Pod Security Context               ##
-          ## Container cannot run as root       ##
-          ########################################
+        ########################################
+        ## Pod Security Context               ##
+        ## Container cannot run as root       ##
+        ########################################
         securityContext:
           runAsNonRoot: true
 
-          ########################################
-          ## Graceful shutdown of Pods          ##
-          ## 15 Seconds to terminate            ##
-          ## Amount of time to wait for a       ##
-          ## SIGTERM to run until a SIGKILL     ##
-          ## is used                            ##
-          ########################################
+        ########################################
+        ## Graceful shutdown of Pods          ##
+        ## 15 Seconds to terminate            ##
+        ## Amount of time to wait for a       ##
+        ## SIGTERM to run until a SIGKILL     ##
+        ## is used                            ##
+        ########################################
         terminationGracePeriodSeconds: 15
 
-          ##################################################
-          ## Shared PID Namespaces                        ##
-          ## beta in Kubernetes 1.10                      ##
-          ## enable with PodShareProcessNamespace         ##
-          ## makes sidecar containers more powerful       ##
-          ## send a SIGHUP signal to reload configuration ##
-          ##################################################
+        ##################################################
+        ## Shared PID Namespaces                        ##
+        ## beta in Kubernetes 1.10                      ##
+        ## enable with PodShareProcessNamespace         ##
+        ## makes sidecar containers more powerful       ##
+        ## send a SIGHUP signal to reload configuration ##
+        ##################################################
         #shareProcessNamespace: true
 
         containers:

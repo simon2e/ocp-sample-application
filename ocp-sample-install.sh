@@ -16,8 +16,15 @@ oc project pr-sample-application
 oc delete all --all
 oc delete cm --all
 oc delete secrets scr-env-sample-app-secret
+oc delete serviceaccount sa-ocp-sample-app
 
 sleep 10
+
+###########################################################
+# Create a Service Account                               ##
+###########################################################
+
+oc create serviceaccount sa-ocp-sample-app
 
 ###########################################################
 # Create Route                                           ##

@@ -4,6 +4,7 @@ When discussing application requirements with the developer.
 
 Use this form as a guideline to modify certain sections of the manifest files to facilitate how the application will run.
 
+## General Questions
 
 * Does the application need to be internet facing?
 If the answer is yes then modify and include : `ocp-sample-route.yml`
@@ -24,8 +25,20 @@ If the answer is yes then modify : `ocp-sample-secret.yml`
 Edit `ocp-sample-secret.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application
 You will normally have one `ocp-sample-secret.yml` per environment and one `ocp-sample-deployment-config.yaml`
 
-## Application specific requirements that involve modifying : `ocp-sample-deployment-config.yaml`
+## Deployment Questions 
+
 These sections are all in the `ocp-sample-deployment-config.yaml`
+
+* Run the application with a unique identity in order to control access to resources on a fine grain
+This is security best practice
+```
+        ################################################
+        ## Provide an application with a unique       ##
+        ## identity in order to control access to     ##
+        ## resources on a fine grain                  ##
+        ################################################
+        serviceAccountName: sa-ocp-sample-app
+```
 
 * Do you wish to pull a new image from an external repository anytime the tag changes?
 ```
@@ -43,10 +56,10 @@ These sections are all in the `ocp-sample-deployment-config.yaml`
 * Do you wish to ensure that only one pod will be scheduled on one Node?
 This is typically to ensure higher resiliency in case of node failure a second pod will not be running on the same node
 ```
-          ################################################
-          ## podAntiAffinity Rule                       ##
-          ## Only one Pod will be scheduled on one Node ##
-          ################################################
+        ################################################
+        ## podAntiAffinity Rule                       ##
+        ## Only one Pod will be scheduled on one Node ##
+        ################################################
         affinity:
           podAntiAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
@@ -62,10 +75,10 @@ This is typically to ensure higher resiliency in case of node failure a second p
 * Do you want to run this pod not as root?
 This is best practice not to run the container as root
 ```
-          ########################################
-          ## Pod Security Context               ##
-          ## Container cannot run as root       ##
-          ########################################
+        ########################################
+        ## Pod Security Context               ##
+        ## Container cannot run as root       ##
+        ########################################
         securityContext:
           runAsNonRoot: true
 ```
@@ -73,13 +86,13 @@ This is best practice not to run the container as root
 * Do you want an amount of time for graceful shutdown?
 Java application could require some time to gracefully shut down
 ```
-          ########################################
-          ## Graceful shutdown of Pods          ##
-          ## 15 Seconds to terminate            ##
-          ## Amount of time to wait for a       ##
-          ## SIGTERM to run until a SIGKILL     ##
-          ## is used                            ##
-          ########################################
+        ########################################
+        ## Graceful shutdown of Pods          ##
+        ## 15 Seconds to terminate            ##
+        ## Amount of time to wait for a       ##
+        ## SIGTERM to run until a SIGKILL     ##
+        ## is used                            ##
+        ########################################
         terminationGracePeriodSeconds: 15
 ```
 
