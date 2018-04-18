@@ -7,30 +7,30 @@ Use this form as a guideline to modify certain sections of the manifest files to
 ## General Questions
 
 * Does the application need to be internet facing?
-If the answer is yes then modify and include : `ocp-sample-route.yml`
-Edit  `ocp-sample-route.yml` to suit the requirements of the application
+If the answer is yes then modify and include : `ocp-sample-route.yml`.
+Edit  `ocp-sample-route.yml` to suit the requirements of the application.
 
 * Does the application require dynamic scaling based on CPU utilization?
-If the answer is yes then modify and include : `ocp-sample-hpa.yml`
-Edit `ocp-sample-hpa.yml` to suit the requirements of the application
-Ensure the application is stateless or multiple copies could cause locking conflicts
+If the answer is yes then modify and include : `ocp-sample-hpa.yml`.
+Edit `ocp-sample-hpa.yml` to suit the requirements of the application.
+Ensure the application is stateless or multiple copies could cause locking conflicts, heapster must be enabled.
 
 * Does the application require environmental configuration data?
-If the answer is yes then modify : `ocp-sample-configmap.yml`
-Edit `ocp-sample-configmap.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application
-You will normally have one `ocp-sample-configmap.yml` per environment and one `ocp-sample-deployment-config.yaml`
+If the answer is yes then modify : `ocp-sample-configmap.yml`.
+Edit `ocp-sample-configmap.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application.
+You will normally have one `ocp-sample-configmap.yml` per environment and one `ocp-sample-deployment-config.yaml`.
 
 * Does the application require secrets?
-If the answer is yes then modify : `ocp-sample-secret.yml`
-Edit `ocp-sample-secret.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application
-You will normally have one `ocp-sample-secret.yml` per environment and one `ocp-sample-deployment-config.yaml`
+If the answer is yes then modify : `ocp-sample-secret.yml`.
+Edit `ocp-sample-secret.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application.
+You will normally have one `ocp-sample-secret.yml` per environment and one `ocp-sample-deployment-config.yaml`.
 
-## Deployment Questions 
+## Deployment Questions
 
-These sections are all in the `ocp-sample-deployment-config.yaml`
+These sections are all in the `ocp-sample-deployment-config.yaml`.
 
-* Run the application with a unique identity in order to control access to resources on a fine grain
-This is security best practice
+* Run the application with a unique identity in order to control access to resources on a fine grain.
+This is security best practice.
 ```
         ################################################
         ## Provide an application with a unique       ##
@@ -54,7 +54,7 @@ This is security best practice
 ```
 
 * Do you wish to ensure that only one pod will be scheduled on one Node?
-This is typically to ensure higher resiliency in case of node failure a second pod will not be running on the same node
+This is typically to ensure higher resiliency in case of node failure a second pod will not be running on the same node.
 ```
         ################################################
         ## podAntiAffinity Rule                       ##
@@ -73,7 +73,7 @@ This is typically to ensure higher resiliency in case of node failure a second p
 ```
 
 * Do you want to run this pod not as root?
-This is best practice not to run the container as root
+This is best practice not to run the container as root.
 ```
         ########################################
         ## Pod Security Context               ##
@@ -84,7 +84,7 @@ This is best practice not to run the container as root
 ```
 
 * Do you want an amount of time for graceful shutdown?
-Java application could require some time to gracefully shut down
+Java application could require some time to gracefully shut down.
 ```
         ########################################
         ## Graceful shutdown of Pods          ##
@@ -97,8 +97,8 @@ Java application could require some time to gracefully shut down
 ```
 
 * Do you have any Resource Specific Requirements that you wish to enforce?
-Java applications could consume all available memory on a node if not constrained
-Be very careful of this setting, watch for OOM messages in logs if pod terminates this indicates Out of Memory and the pod will be killed and restarted
+Java applications could consume all available memory on a node if not constrained.
+Be very careful of this setting, watch for OOM messages in logs if pod terminates this indicates Out of Memory and the pod will be killed and restarted.
 ```
             ######################################################
             ## Resource Management                              ##
@@ -131,4 +131,4 @@ Be very careful of this setting, watch for OOM messages in logs if pod terminate
             emptyDir: {}
 ```
 
-End of Section
+# End of Section

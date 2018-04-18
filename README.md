@@ -6,9 +6,13 @@ This example deploys a Wildfly server and exposes it via a route.
 
 By having working template files it will be easier to deploy workloads for clients using commonaly requested features.
 
+## Useful Links
+
 [Why Kubernetes](https://cloud.google.com/kubernetes-engine/kubernetes-comic)
 
 [Kubernetes Features](https://deis.com/blog/2016/kubernetes-illustrated-guide)
+
+## Features Included
 
 Currently included features are:
 * [Deployment Configuration](https://docs.openshift.com/container-platform/3.9/dev_guide/deployments/how_deployments_work.html)
@@ -22,14 +26,20 @@ Currently included features are:
 * [Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context)
 * [Empty Directory](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
 
+## Features not included
+
 Samples documented but not included in the deployment due to missing support are:
 * [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale) - Horizontal Pod Autoscaler requires Heapster
 * [Pod Security Policies](https://kubernetes.io/docs/concepts/policy/pod-security-policy) - Pod Security Policies requires the controller-manager to have PodSecurityPolicy
 * [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies) - Network Policies requires of Container Network Provider
 
+## Contribution
+
 Please feel free to contribute and re-use.
 
 If you contribute please try to fully document to asssit consultants in understanding the features being added.
+
+## Deployment
 
 To deploy on minishift just:
 
@@ -40,6 +50,8 @@ To deploy on minishift just:
 5. `chmod +x ocp-sample-install.sh`
 6. `./ocp-sample-install.sh`
 7. `oc get all`
+
+Sample output of successful deployment.
 
 ```
 jamesb@Surface:~/ocp-sample-application$ oc get all
@@ -61,3 +73,5 @@ rc/dc-sample-app-1   1         1         1         40s
 NAME                 CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 svc/svc-sample-app   172.30.67.174   <none>        8080/TCP   47s
 ```
+
+# End of Section
