@@ -1,10 +1,12 @@
 # Sample OpenShift Template/Mainfest Files
 
-This intent is to provide a fully documented working set of OpenShift manifest files for Levvel Consultants.
+## Summary
 
-This example deploys a Wildfly server and exposes it via a route.
+This intent is to provide a fully documented and working set of OpenShift manifest files for Levvel Consultants.
 
-By having working template files it will be easier to deploy workloads for clients using commonaly requested features.
+This example deploys a Wildfly server and exposes it via a route on minishift.
+
+By having a set of working template files it will be easier to deploy workloads for clients using common requested features.
 
 ## Useful Links
 
@@ -73,5 +75,8 @@ rc/dc-sample-app-1   1         1         1         40s
 NAME                 CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 svc/svc-sample-app   172.30.67.174   <none>        8080/TCP   47s
 ```
+## Author
+james.buckett@levvel.io
+
 
 # End of Section
