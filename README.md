@@ -14,6 +14,8 @@ By having a set of working template files it will be easier to deploy workloads 
 
 [Kubernetes Features](https://deis.com/blog/2016/kubernetes-illustrated-guide)
 
+[Minishift] (https://docs.openshift.org/latest/minishift/getting-started/installing.html)
+
 ## Features Included
 
 Currently included features are:
