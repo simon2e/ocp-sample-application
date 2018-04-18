@@ -7,11 +7,13 @@ Use this form as a guideline to modify certain sections of the manifest files to
 ## General Questions
 
 * Does the application need to be internet facing?
+
 If the answer is yes then modify and include : `ocp-sample-route.yml`.
 
 Edit  `ocp-sample-route.yml` to suit the requirements of the application.
 
 * Does the application require dynamic scaling based on CPU utilization?
+
 If the answer is yes then modify and include : `ocp-sample-hpa.yml`.
 
 Edit `ocp-sample-hpa.yml` to suit the requirements of the application.
@@ -19,6 +21,7 @@ Edit `ocp-sample-hpa.yml` to suit the requirements of the application.
 Ensure the application is stateless or multiple copies could cause locking conflicts, heapster must be enabled.
 
 * Does the application require environmental configuration data?
+
 If the answer is yes then modify : `ocp-sample-configmap.yml`.
 
 Edit `ocp-sample-configmap.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application.
@@ -26,6 +29,7 @@ Edit `ocp-sample-configmap.yml` and `ocp-sample-deployment-config.yaml` to suit 
 You will normally have one `ocp-sample-configmap.yml` per environment and one `ocp-sample-deployment-config.yaml`.
 
 * Does the application require secrets?
+
 If the answer is yes then modify : `ocp-sample-secret.yml`.
 
 Edit `ocp-sample-secret.yml` and `ocp-sample-deployment-config.yaml` to suit the requirements of the application.
@@ -41,11 +45,11 @@ These sections are all in the `ocp-sample-deployment-config.yaml`.
 This is security best practice.
 
 ```
-    ################################################
-    ## Provide an application with a unique       ##
-    ## identity in order to control access to     ##
-    ## resources on a fine grain                  ##
-    ################################################
+   ################################################
+   ## Provide an application with a unique       ##
+   ## identity in order to control access to     ##
+   ## resources on a fine grain                  ##
+   ################################################
         serviceAccountName: sa-ocp-sample-app
 ```
 
@@ -68,10 +72,10 @@ This is security best practice.
 This is typically to ensure higher resiliency in case of node failure a second pod will not be running on the same node.
 
 ```
-    ################################################
-    ## podAntiAffinity Rule                       ##
-    ## Only one Pod will be scheduled on one Node ##
-    ################################################
+   ################################################
+   ## podAntiAffinity Rule                       ##
+   ## Only one Pod will be scheduled on one Node ##
+   ################################################
     affinity:
       podAntiAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -89,10 +93,10 @@ This is typically to ensure higher resiliency in case of node failure a second p
 This is best practice not to run the container as root.
 
 ```
-    ########################################
-    ## Pod Security Context               ##
-    ## Container cannot run as root       ##
-    ########################################
+   ########################################
+   ## Pod Security Context               ##
+   ## Container cannot run as root       ##
+   ########################################
     securityContext:
       runAsNonRoot: true
 ```
@@ -102,14 +106,14 @@ This is best practice not to run the container as root.
 Java application could require some time to gracefully shut down.
 
 ```
-    ########################################
-    ## Graceful shutdown of Pods          ##
-    ## 15 Seconds to terminate            ##
-    ## Amount of time to wait for a       ##
-    ## SIGTERM to run until a SIGKILL     ##
-    ## is used                            ##
-    ########################################
-    terminationGracePeriodSeconds: 15
+   ########################################
+   ## Graceful shutdown of Pods          ##
+   ## 15 Seconds to terminate            ##
+   ## Amount of time to wait for a       ##
+   ## SIGTERM to run until a SIGKILL     ##
+   ## is used                            ##
+   ########################################
+   terminationGracePeriodSeconds: 15
 ```
 
 * Do you have any Resource Specific Requirements that you wish to enforce?
@@ -119,36 +123,36 @@ Java applications could consume all available memory on a node if not constraine
 Be very careful of this setting, watch for OOM messages in logs if pod terminates this indicates Out of Memory and the pod will be killed and restarted.
 
 ```
-    ######################################################
-    ## Resource Management                              ##
-    ## CPU Initial Request    = 0.5 cores               ##
-    ## Memory Initial Request = 512 MB                  ##
-    ## CPU Upper Limit        = 1.0 cores               ##
-    ## Memory Upper Limit     = 2048 MB                 ##
-    ######################################################
-       requests:
-         cpu: "500m"
-         memory: "512Mi"
-       limits:
-         cpu: "1000m"
-         memory: "2048Mi"
+   ######################################################
+   ## Resource Management                              ##
+   ## CPU Initial Request    = 0.5 cores               ##
+   ## Memory Initial Request = 512 MB                  ##
+   ## CPU Upper Limit        = 1.0 cores               ##
+   ## Memory Upper Limit     = 2048 MB                 ##
+   ######################################################
+      requests:
+        cpu: "500m"
+        memory: "512Mi"
+      limits:
+        cpu: "1000m"
+        memory: "2048Mi"
 ```
 
 * Do you wish to use a temporary directory for the application?
 
 ```
-    ########################################
-    ## Empty Directory used for cache     ##
-    ## temporary directory destroyed      ##
-    ## when pod terminates                ##
-    ########################################
-      volumeMounts:
-       - name: cache-directory
-          mountPath: "/cache"
-          readOnly: false
-    volumes:
-     - name: cache-directory
-       emptyDir: {}
+   ########################################
+   ## Empty Directory used for cache     ##
+   ## temporary directory destroyed      ##
+   ## when pod terminates                ##
+   ########################################
+     volumeMounts:
+      - name: cache-directory
+         mountPath: "/cache"
+         readOnly: false
+   volumes:
+    - name: cache-directory
+      emptyDir: {}
 ```
 
 # End of Section
