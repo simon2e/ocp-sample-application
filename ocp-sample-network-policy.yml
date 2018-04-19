@@ -1,8 +1,8 @@
 ---
 ######################################################
-### Network Policy                                  ##
-### Control pods incoming connection                ##
-### Based on Labels                                 ##
+### Network Policy                                 ###
+### Control pods incoming connection               ###
+### Based on Labels                                ###
 ######################################################
 ## Web Tier communicates with App tier   tier: web  ##
 ## App Tier communicates with DB  tier   tier: app  ##
@@ -37,6 +37,6 @@ ports:
   port: 8080
 ---
 #######################################################
-#### End of Section                                  ##
+### End of Section                                  ###
 #######################################################
 

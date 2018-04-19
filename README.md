@@ -58,26 +58,29 @@ To deploy on minishift just:
 Sample output of successful deployment.
 
 ```
-jamesb@Surface:~/ocp-sample-application$ oc get all
-NAME                         DOCKER REPO                               TAGS      UPDATED
-imagestreams/dc-sample-app   172.30.1.1:5000/myproject/dc-sample-app   latest    40 seconds ago
+jamesb@Surface:~$ oc get all
+NAME                         DOCKER REPO                                           TAGS           UPDATED
+imagestreams/dc-sample-app   172.30.1.1:5000/pr-sample-application/dc-sample-app   11.0.0.Final   7 hours ago
 
 NAME                              REVISION   DESIRED   CURRENT   TRIGGERED BY
-deploymentconfigs/dc-sample-app   1          1         1         config,image(dc-sample-app:latest)
+deploymentconfigs/dc-sample-app   1          1         1         config,image(dc-sample-app:11.0.0.Final)
 
-NAME                   HOST/PORT            PATH      SERVICES         PORT       TERMINATION   WILDCARD
-routes/rt-sample-app   HostAlreadyClaimed             svc-sample-app   8080-tcp   edge          None
+NAME                   HOST/PORT                                  PATH      SERVICES         PORT       TERMINATION   WILDCARD
+routes/rt-sample-app   sample-application.192.168.99.100.nip.io             svc-sample-app   8080-tcp   edge          None
 
 NAME                       READY     STATUS    RESTARTS   AGE
-po/dc-sample-app-1-jm7w8   1/1       Running   0          39s
+po/dc-sample-app-1-zmx65   1/1       Running   1          7h
 
 NAME                 DESIRED   CURRENT   READY     AGE
-rc/dc-sample-app-1   1         1         1         40s
+rc/dc-sample-app-1   1         1         1         7h
 
-NAME                 CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-svc/svc-sample-app   172.30.67.174   <none>        8080/TCP   47s
+NAME                 CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+svc/svc-sample-app   172.30.79.62   <none>        8080/TCP   7h
+
 ```
 ## Author
+James Buckett
+@jamesbuckett
 james.buckett@levvel.io
 
 

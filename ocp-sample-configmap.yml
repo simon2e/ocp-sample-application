@@ -1,6 +1,6 @@
 ---
 ######################################################
-### Configuration Map Construct                     ##
+### Configuration Map Construct                    ###
 ######################################################
 apiVersion: v1
 data:
@@ -23,5 +23,5 @@ metadata:
   name: "cm-env-sample-app-environment"
 ---
 #######################################################
-#### End of Section                                  ##
+### End of Section                                  ###
 #######################################################

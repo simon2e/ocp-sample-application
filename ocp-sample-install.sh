@@ -21,37 +21,37 @@ oc delete serviceaccount sa-ocp-sample-app
 sleep 10
 
 ###########################################################
-# Create a Service Account                               ##
+## Create a Service Account                              ##
 ###########################################################
 
 oc create serviceaccount sa-ocp-sample-app
 
 ###########################################################
-# Create Route                                           ##
+## Create Route                                          ##
 ###########################################################
 
 oc apply -f ocp-sample-route.yml
 
 ###########################################################
-# Create Persistent Volumes                               #
+## Create Pod Disruption Poliy                           ##
 ###########################################################
 
-# TBD
+# oc apply -f ocp-sample-pdb.yml
 
 ###########################################################
-# Create ConfigMaps                                      ##
+## Create ConfigMaps                                     ##
 ###########################################################
 
 oc apply -f ocp-sample-configmap.yml
 
 ###########################################################
-# Create Secrets                                         ##
+## Create Secrets                                        ##
 ###########################################################
 
 oc apply -f ocp-sample-secret.yml
 
 ###########################################################
-# Create Service                                         ##
+## Create Service                                        ##
 ###########################################################
 
 oc apply -f ocp-sample-service.yml
