@@ -1,7 +1,7 @@
 ---
-######################################################
-### Image Stream Construct                          ##
-######################################################
+#######################################################
+### Image Stream Construct                          ###
+#######################################################
 apiVersion: v1
 items:
 - apiVersion: v1
@@ -285,7 +285,6 @@ items:
         from:
           kind: ImageStreamTag
           name: dc-sample-app:11.0.0.Final
-          #name: dc-sample-app:latest
       type: ImageChange
   status:
     availableReplicas: 0

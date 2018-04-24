@@ -60,9 +60,9 @@ oc apply -f ocp-sample-service.yml
 ## Create Deployment Configuration                       ##
 ###########################################################
 
-# oc apply -f ocp-sample-deployment-config.yaml
+# oc apply -f ocp-sample-deployment-config.yml
 
-oc apply -f ocp-sample-deployment-config.yaml --record
+oc apply -f ocp-sample-deployment-config.yml --record
 
 # You can append --record to this command to record the current command in the annotations of the created or updated resource.
 # This is useful for future review, such as investigating which commands were executed in each Deployment revision.

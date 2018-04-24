@@ -1,0 +1,26 @@
+---
+######################################################
+### Pod Disruption Budget Construct                ###
+######################################################
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: pdp-ocp-sample-app
+spec:
+  #maxUnavailable: 1
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: ocp-sample-app
+---
+#######################################################
+### End of Section                                  ###
+#######################################################
+
+
+#########################################################################################################################
+### By configuring a pod disruption budget for your deployment, Kubernetes can start rejecting voluntary disruptions. ###
+### Example : a pre-emptive node on GKE gets taken out of service                                                     ###
+### While this pod is being rescheduled and waiting to become ready, all requests to evict other pods in your         ###
+### deployment will fail. Pod disruption budget cannot protect you from involuntary disruptions.                      ###
+#########################################################################################################################
